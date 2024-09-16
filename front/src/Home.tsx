@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Button } from './components/ui/button'
 import { Input } from './components/ui/input'
 import api from './services/api'
+import { Trash } from 'lucide-react'
 
 interface User {
   id: string
@@ -65,13 +66,13 @@ export function Home() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <Button variant={'default'} onClick={createUser}>
+        <Button variant={'success'} onClick={createUser}>
           Cadastrar
         </Button>
       </div>
       {users.map((user) => (
         <div
-          className="bg-slate-800 flex justify-between p-4 rounded-lg w-80 h-30 text-white mt-5"
+          className="bg-slate-800 flex items-center justify-between p-4 rounded-lg w-80 h-30 text-white mt-5"
           key={user.id}
         >
           <div className="flex flex-col">
@@ -86,10 +87,14 @@ export function Home() {
             </p>
           </div>
           <div className="flex">
-            <button onClick={() => deleteUser(user.id)}>delete</button>
+            <Button variant={'delete'} onClick={() => deleteUser(user.id)}>
+              <Trash />
+            </Button>
           </div>
         </div>
       ))}
     </div>
   )
 }
+
+// <button onClick={() => deleteUser(user.id)}>delete</button>

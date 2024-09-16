@@ -9,8 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          'bg-white text-black shadow hover:bg-green-400 hover:text-white dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-50/90',
+        success:
+          'bg-white text-black shadow hover:bg-green-400 hover:text-white',
+        delete: 'bg-transparent hover:bg-red-600',
       },
       size: {
         default: 'h-9 px-4 py-2',
@@ -20,7 +21,6 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: 'default',
       size: 'default',
     },
   }
