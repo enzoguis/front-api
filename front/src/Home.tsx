@@ -29,6 +29,11 @@ export function Home() {
     getUsers()
   }
 
+  async function deleteUser(id: string) {
+    await api.delete(`/usuarios/${id}`)
+    getUsers()
+  }
+
   useEffect(() => {
     getUsers()
   }, [])
@@ -81,7 +86,7 @@ export function Home() {
             </p>
           </div>
           <div className="flex">
-            <p>a</p>
+            <button onClick={() => deleteUser(user.id)}>delete</button>
           </div>
         </div>
       ))}
